@@ -4,35 +4,38 @@ import { makeExecutableSchema } from 'graphql-tools';
 
 import { mergeSchemas } from './utilities';
 
-import {
-	// Users
+import { //User
 	userTypeDef,
 	userQueries,	
 	userMutations,
-	// Messages
+} from './dayscool/users/typeDefs';
+
+import{ //Messages
 	conversationTypeDef,
 	conversationQueries,
 	conversationMutations,
 	messageTypeDef
-} from './supermarket/categories/typeDefs';
+} from './dayscool/messages/typeDefs';
 
 import { // ABAC
 	roleTypeDef,
 	microserviceTypeDef,
 	requestTypeDef,
 	permissionTypeDef,
-	RoleQueries,
-	RoleMutations,
-	MicroserviceQueries,
-	MicroserviceMutations,
-	RequestQueries,
-	RequestMutations,
-	PermissionQueries,
-	PermissionMutations
-} from './supermarket/abac/typeDefs';
+	roleQueries,
+	roleMutations,
+	microserviceQueries,
+	microserviceMutations,
+	requestQueries,
+	requestMutations,
+	permissionQueries,
+	permissionMutations
+} from './dayscool/abac/typeDefs';
 
-import msResolvers from './supermarket/categories/resolvers';
-import abacResolver from './supermarket/abac/resolvers';
+
+import userResolvers from './dayscool/users/resolvers';
+import messageResolvers from './dayscool/messages/resolvers';
+import abacResolvers from './dayscool/abac/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
@@ -44,23 +47,23 @@ const mergedTypeDefs = mergeSchemas(
 		roleTypeDef,
 		microserviceTypeDef,
 		requestTypeDef,
-		permissionTypeDef
+		permissionTypeDef,
 	],
 	[
 		userQueries,
 		conversationQueries,
-		RoleQueries,
-		MicroserviceQueries,
-		RequestQueries,
-		PermissionQueries
+		roleQueries,
+		microserviceQueries,
+		requestQueries,
+		permissionQueries,
 	],
 	[	
 		userMutations,
 		conversationMutations,
-		RoleMutations,
-		MicroserviceMutations,
-		RequestMutations,
-		PermissionMutations
+		roleMutations,
+		microserviceMutations,
+		requestMutations,
+		permissionMutations
 	]
 );
 
@@ -69,7 +72,8 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
-		msResolvers,
-		abacResolver
+		userResolvers,
+		messageResolvers,
+		abacResolvers
 	)
 });

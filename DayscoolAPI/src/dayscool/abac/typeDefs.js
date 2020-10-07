@@ -11,11 +11,11 @@ export const roleTypeDef = `
     }
   }
 `;
-export const RoleQueries = `
+export const roleQueries = `
   getRoles: [Role]!
   getRolebyUuid(role_uuid: String!): [Role]!
 `;
-export const RoleMutations = `
+export const roleMutations = `
   addRole(role: RoleInput!): Role!
   updateRole(role_uuid: String!, role: RoleInput!): Role!
   deleteRole(role_uuid: String!): Role!
@@ -34,11 +34,11 @@ export const microserviceTypeDef = `
     }
   }
 `;
-export const MicroserviceQueries = `
+export const microserviceQueries = `
   getMicroservices: [Microservice]!
   getMicroservicebyUuid(ms_uuid: String!): [Microservice]!
 `;
-export const MicroserviceMutations = `
+export const microserviceMutations = `
   addMicroservice(microservice: MicroserviceInput!): Microservice!
   updateMicroservice(ms_uuid: String!, microservice: MicroserviceInput!): Microservice!
   deleteMicroservice(ms_uuid: String!): Microservice!
@@ -59,11 +59,11 @@ export const requestTypeDef = `
     }
   }
 `;
-export const RequestQueries = `
+export const requestQueries = `
   getRequests: [Request]!
   getRequestbyUuid(request_uuid: String!): [Request]!
 `;
-export const RequestMutations = `
+export const requestMutations = `
   addRequest(request: RequestInput!): Request!
   updateRequest(request_uuid: String!, request: RequestInput!): Request!
   deleteRequest(request_uuid: String!): Request!
@@ -82,11 +82,11 @@ export const permissionTypeDef = `
     }
   }
 `;
-export const PermissionQueries = `
+export const permissionQueries = `
   getPermissions: [Permission]!
   getPermissionbyUuid(permission_uuid: String!): [Permission]!
 `;
-export const PermissionMutations = `
+export const permissionMutations = `
   addPermission(permission: PermissionInput!): Permission!
   updatePermission(permission_uuid: String!, permission: PermissionInput!): Permission!
   deletePermission(permission_uuid: String!): Permission!
