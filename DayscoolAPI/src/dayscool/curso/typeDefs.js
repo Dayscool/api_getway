@@ -34,3 +34,15 @@ export const alumnosTypeDef = `
     }
 `;
 
+//Objetos GET
+export const cursoQueries = `
+    getCursoById(id: Int!): Curso!
+    etCursoStudentById(id:Int!): [Curso]!
+`;
+
+export const cursoMutations = `
+    createCurso(curso: CursoInput): Int
+    createAlumnos(alumnos: [AlumnoInput]!): Int
+    createReunion(reunion: ReunionInput!): Int
+    updateCurso(id: Int!, curso: CursoInput!): Int
+`
