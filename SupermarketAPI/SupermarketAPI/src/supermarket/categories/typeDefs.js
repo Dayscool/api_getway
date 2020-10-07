@@ -70,5 +70,3 @@ export const conversationMutations = `
   deleteConversation(idUs: Int!,idConv: Int!): Int
   deleteMessage(idUs: Int!,idConv: Int!, isMsg: Int!): Int
 `;
-
-
