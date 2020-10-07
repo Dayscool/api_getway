@@ -58,6 +58,7 @@ const mergedTypeDefs = mergeSchemas(
 		permissionTypeDef,
 		cursoTypeDef,
 		alumnosTypeDef,
+		reunionTypeDef,
 	],
 	[
 		userQueries,
