@@ -32,10 +32,18 @@ import { // ABAC
 	permissionMutations
 } from './dayscool/abac/typeDefs';
 
+import { // Curso
+	cursoTypeDef,
+	reunionTypeDef,
+	alumnosTypeDef,
+	cursoQueries,
+	cursoMutations
+} from './dayscool/curso/typeDefs'
 
 import userResolvers from './dayscool/users/resolvers';
 import messageResolvers from './dayscool/messages/resolvers';
 import abacResolvers from './dayscool/abac/resolvers';
+import cursoResolvers from './dayscool/curso/resolvers'
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
@@ -48,6 +56,8 @@ const mergedTypeDefs = mergeSchemas(
 		microserviceTypeDef,
 		requestTypeDef,
 		permissionTypeDef,
+		cursoTypeDef,
+		alumnosTypeDef,
 	],
 	[
 		userQueries,
@@ -56,6 +66,7 @@ const mergedTypeDefs = mergeSchemas(
 		microserviceQueries,
 		requestQueries,
 		permissionQueries,
+		cursoQueries,
 	],
 	[	
 		userMutations,
@@ -63,7 +74,8 @@ const mergedTypeDefs = mergeSchemas(
 		roleMutations,
 		microserviceMutations,
 		requestMutations,
-		permissionMutations
+		permissionMutations,
+		cursoMutations,
 	]
 );
 
@@ -74,6 +86,7 @@ export default makeExecutableSchema({
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		userResolvers,
 		messageResolvers,
-		abacResolvers
+		abacResolvers,
+		cursoResolvers
 	)
 });
