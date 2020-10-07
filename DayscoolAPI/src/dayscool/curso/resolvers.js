@@ -3,7 +3,7 @@ import {url, port, entryPoint} from './server';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
 
-const resolver = {
+const resolvers = {
     Query: {
         getCursoById: (_,{ id }) =>
             generalRequest(`${URL}/${id}`, 'GET'),
@@ -21,3 +21,5 @@ const resolver = {
             generalRequest(`${URL}/modificar/${id}`, 'PUT', curso)
     }
 }
+
+export default resolvers;
