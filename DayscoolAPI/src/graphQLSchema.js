@@ -4,18 +4,18 @@ import { makeExecutableSchema } from 'graphql-tools';
 
 import { mergeSchemas } from './utilities';
 
-import { //User
-	userTypeDef,
-	userQueries,	
-	userMutations,
-} from './dayscool/users/typeDefs';
+// import { //User
+// 	userTypeDef,
+// 	userQueries,	
+// 	userMutations,
+// } from './dayscool/users/typeDefs';
 
-import{ //Messages
-	conversationTypeDef,
-	conversationQueries,
-	conversationMutations,
-	messageTypeDef
-} from './dayscool/messages/typeDefs';
+// import{ //Messages
+// 	conversationTypeDef,
+// 	conversationQueries,
+// 	conversationMutations,
+// 	messageTypeDef
+// } from './dayscool/messages/typeDefs';
 
 import { // ABAC
 	roleTypeDef,
@@ -41,25 +41,25 @@ import abacResolvers from './dayscool/abac/resolvers';
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		userTypeDef,
-		conversationTypeDef,
-		messageTypeDef,
+		// userTypeDef,
+		// conversationTypeDef,
+		// messageTypeDef,
 		roleTypeDef,
 		microserviceTypeDef,
 		requestTypeDef,
 		permissionTypeDef,
 	],
 	[
-		userQueries,
-		conversationQueries,
+		// userQueries,
+		// conversationQueries,
 		roleQueries,
 		microserviceQueries,
 		requestQueries,
 		permissionQueries,
 	],
 	[	
-		userMutations,
-		conversationMutations,
+		// userMutations,
+		// conversationMutations,
 		roleMutations,
 		microserviceMutations,
 		requestMutations,
@@ -72,8 +72,8 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
-		userResolvers,
-		messageResolvers,
+		// userResolvers,
+		// messageResolvers,
 		abacResolvers
 	)
 });

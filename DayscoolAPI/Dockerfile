@@ -1,14 +1,14 @@
 FROM node:carbon-slim
 
 # Create app directory
-WORKDIR /supermarket_api
+WORKDIR /DayscoolAPI
 
 # Install app dependencies
-COPY package.json /supermarket_api/
+COPY package.json /DayscoolAPI/
 RUN npm install
 
 # Bundle app source
-COPY . /supermarket_api/
+COPY . /DayscoolAPI/
 RUN npm run prepublish
 
 CMD [ "npm", "run", "runServer" ]

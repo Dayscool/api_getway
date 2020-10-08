@@ -4,7 +4,7 @@ export const roleTypeDef = `
     roleName: String!
     roleDescription: String!
   }
-  input UserInput {
+  input RoleInput {
     role: {
       roleName: :String!
       roleDescription: :String!
