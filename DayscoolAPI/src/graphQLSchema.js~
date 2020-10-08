@@ -17,20 +17,20 @@ import{ //Messages
 	messageTypeDef
 } from './dayscool/messages/typeDefs';
 
-import { // ABAC
-	roleTypeDef,
-	microserviceTypeDef,
-	requestTypeDef,
-	permissionTypeDef,
-	roleQueries,
-	roleMutations,
-	microserviceQueries,
-	microserviceMutations,
-	requestQueries,
-	requestMutations,
-	permissionQueries,
-	permissionMutations
-} from './dayscool/abac/typeDefs';
+// import { // ABAC
+// 	roleTypeDef,
+// 	microserviceTypeDef,
+// 	requestTypeDef,
+// 	permissionTypeDef,
+// 	roleQueries,
+// 	roleMutations,
+// 	microserviceQueries,
+// 	microserviceMutations,
+// 	requestQueries,
+// 	requestMutations,
+// 	permissionQueries,
+// 	permissionMutations
+// } from './dayscool/abac/typeDefs';
 
 
 import userResolvers from './dayscool/users/resolvers';
@@ -42,28 +42,28 @@ const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
 		userTypeDef,
-		conversationTypeDef,
-		messageTypeDef,
-		roleTypeDef,
-		microserviceTypeDef,
-		requestTypeDef,
-		permissionTypeDef,
+		// conversationTypeDef,
+		// messageTypeDef,
+		// roleTypeDef,
+		// microserviceTypeDef,
+		// requestTypeDef,
+		// permissionTypeDef,
 	],
 	[
 		userQueries,
-		conversationQueries,
-		roleQueries,
-		microserviceQueries,
-		requestQueries,
-		permissionQueries,
+		// conversationQueries,
+		// roleQueries,
+		// microserviceQueries,
+		// requestQueries,
+		// permissionQueries,
 	],
 	[	
 		userMutations,
-		conversationMutations,
-		roleMutations,
-		microserviceMutations,
-		requestMutations,
-		permissionMutations
+		// conversationMutations,
+		// roleMutations,
+		// microserviceMutations,
+		// requestMutations,
+		// permissionMutations
 	]
 );
 
@@ -73,7 +73,7 @@ export default makeExecutableSchema({
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		userResolvers,
-		messageResolvers,
-		abacResolvers
+		// messageResolvers,
+		// abacResolvers
 	)
 });

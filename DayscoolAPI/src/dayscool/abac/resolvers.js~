@@ -1,32 +1,32 @@
 import {generalRequest, getRequest} from '../../utilities'
-import {url, port, entryPoint} from './server';
+import {url, port, entryPoint} from './server.js';
 
 const URL = `http://${url}:${port}/${entryPoint}`
 
 const resolvers = {
     Query: {
-    getRoles: (_) =>
-			generalRequest(`${URL}/roles`, 'GET'),
-		getRolebyUuid: (_, { role_uuid }) =>
+        getRoles: (_) =>
+			getRequest(`${URL}/roles`, ''),
+		getRoleByUuid: (_, { role_uuid }) =>
 			generalRequest(`${URL}/roles/${role_uuid}`, 'GET'),
 
 		getMicroservices: (_) =>
 			getRequest(`${URL}/microservices`, ''),
-		getMicroservicebyUuid: (_, { ms_uuid }) =>
+		getMicroserviceByUuid: (_, { ms_uuid }) =>
 			generalRequest(`${URL}/microservicess/${ms_uuid}`, 'GET'),
 		
 		getRequests: (_) =>
 			getRequest(`${URL}/requests`, ''),
-		getRequestbyUuid: (_, { request_uuid }) =>
+		getRequestByUuid: (_, { request_uuid }) =>
 			generalRequest(`${URL}/requests/${request_uuid}`, 'GET'),
 			
 		getPermissions: (_) =>
 			getRequest(`${URL}/permissions`, ''),
-		getPermissionbyUuid: (_, { permission_uuid }) =>
+		getPermissionByUuid: (_, { permission_uuid }) =>
 			generalRequest(`${URL}/permissions/${permission_uuid}`, 'GET'),
     },
     Mutation: {
-    addRole: (_, {role}) =>
+        addRole: (_, {role}) =>
 			generalRequest(`${URL}/roles`, 'POST', role),
 		updateRole: (_, {role_uuid, role}) =>
 			generalRequest(`${URL}/roles/${role_uuid}`, 'PUT', role),

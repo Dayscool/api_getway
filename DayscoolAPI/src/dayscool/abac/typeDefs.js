@@ -1,93 +1,84 @@
 export const roleTypeDef = `
   type Role {
-    roleUuid: String!
-    roleName: String!
-    roleDescription: String!
+    roleUuid: String
+    roleName: String
+    roleDescription: String
   }
   input RoleInput {
-    role: {
-      roleName: :String!
-      roleDescription: :String!
-    }
-  }
-`;
+    roleName: String
+    roleDescription: String
+  }`;
 export const roleQueries = `
-  getRoles: [Role]!
-  getRolebyUuid(role_uuid: String!): [Role]!
+  getRoles: [Role]
+  getRolebyUuid(role_uuid: String): Role
 `;
 export const roleMutations = `
-  addRole(role: RoleInput!): Role!
-  updateRole(role_uuid: String!, role: RoleInput!): Role!
-  deleteRole(role_uuid: String!): Role!
+  addRole(role: RoleInput): Role
+  updateRole(role_uuid: String, role: RoleInput): Role
+  deleteRole(role_uuid: String): Role
 `;
 
 export const microserviceTypeDef = `
   type Microservice {
-    ms_uuid: String!
-    ms_name: String!
-    ms_description: String!
+    msUuid: String
+    msName: String
+    msDescription: String
   }
   input MicroserviceInput {
-    microservice: {
-      ms_name: String!
-      ms_description: String!
-    }
+    msName: String
+    msDescription: String
   }
 `;
 export const microserviceQueries = `
-  getMicroservices: [Microservice]!
-  getMicroservicebyUuid(ms_uuid: String!): [Microservice]!
+  getMicroservices: [Microservice]
+  getMicroservicebyUuid(ms_uuid: String): [Microservice]
 `;
 export const microserviceMutations = `
-  addMicroservice(microservice: MicroserviceInput!): Microservice!
-  updateMicroservice(ms_uuid: String!, microservice: MicroserviceInput!): Microservice!
-  deleteMicroservice(ms_uuid: String!): Microservice!
+  addMicroservice(microservice: MicroserviceInput): Microservice
+  updateMicroservice(ms_uuid: String, microservice: MicroserviceInput): Microservice
+  deleteMicroservice(ms_uuid: String): Microservice
 `;
 
 export const requestTypeDef = `
   type Request {
-    request_uuid: String!
-    ms_uuid: String!
-    request_type: String!
-    description: String!
+    requestUuid: String
+    msUuid: String
+    requestType: String
+    description: String
   }
   input RequestInput {
-    request: {
-      ms_uuid: String!
-      request_type: String!
-      description: String!
-    }
+    msUuid: String
+    requestType: String
+    description: String
   }
 `;
 export const requestQueries = `
-  getRequests: [Request]!
-  getRequestbyUuid(request_uuid: String!): [Request]!
+  getRequests: [Request]
+  getRequestbyUuid(request_uuid: String): [Request]
 `;
 export const requestMutations = `
-  addRequest(request: RequestInput!): Request!
-  updateRequest(request_uuid: String!, request: RequestInput!): Request!
-  deleteRequest(request_uuid: String!): Request!
+  addRequest(request: RequestInput): Request
+  updateRequest(request_uuid: String, request: RequestInput): Request
+  deleteRequest(request_uuid: String): Request
 `;
 
 export const permissionTypeDef = `
   type Permission {
-    permission_uuid: String!
-    permission_uuid: String!
-    request_uuid: String!
+    permissionUuid: String
+    permissionUuid: String
+    requestUuid: String
   }
   input PermissionInput {
-    permission{
-      role_uuid: String!
-      request_uuid: String!
-    }
+    roleUuid: String
+    requestUuid: String
   }
 `;
 export const permissionQueries = `
-  getPermissions: [Permission]!
-  getPermissionbyUuid(permission_uuid: String!): [Permission]!
+  getPermissions: [Permission]
+  getPermissionbyUuid(permission_uuid: String): [Permission]
 `;
 export const permissionMutations = `
-  addPermission(permission: PermissionInput!): Permission!
-  updatePermission(permission_uuid: String!, permission: PermissionInput!): Permission!
-  deletePermission(permission_uuid: String!): Permission!
+  addPermission(permission: PermissionInput): Permission
+  updatePermission(permission_uuid: String, permission: PermissionInput): Permission
+  deletePermission(permission_uuid: String): Permission
 `;
