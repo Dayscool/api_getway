@@ -1,12 +1,12 @@
 export const roleTypeDef = `
   type Role {
-    roleUuid: String
-    roleName: String
-    roleDescription: String
+    role_uuid: String
+    role_name: String
+    role_description: String
   }
   input RoleInput {
-    roleName: String
-    roleDescription: String
+    role_name: String
+    role_description: String
   }`;
 export const roleQueries = `
   getRoles: [Role]
@@ -20,13 +20,13 @@ export const roleMutations = `
 
 export const microserviceTypeDef = `
   type Microservice {
-    msUuid: String
-    msName: String
+    ms_uuid: String
+    ms_name: String
     msDescription: String
   }
   input MicroserviceInput {
-    msName: String
-    msDescription: String
+    ms_name: String
+    ms_description: String
   }
 `;
 export const microserviceQueries = `
@@ -41,14 +41,14 @@ export const microserviceMutations = `
 
 export const requestTypeDef = `
   type Request {
-    requestUuid: String
-    msUuid: String
-    requestType: String
+    request_uuid: String
+    ms_uuid: String
+    request_type: String
     description: String
   }
   input RequestInput {
-    msUuid: String
-    requestType: String
+    ms_uuid: String
+    request_type: String
     description: String
   }
 `;
@@ -64,13 +64,13 @@ export const requestMutations = `
 
 export const permissionTypeDef = `
   type Permission {
-    permissionUuid: String
-    permissionUuid: String
-    requestUuid: String
+    permission_uuid: String
+    permission_uuid: String
+    request_uuid: String
   }
   input PermissionInput {
-    roleUuid: String
-    requestUuid: String
+    role_uuid: String
+    request_uuid: String
   }
 `;
 export const permissionQueries = `
