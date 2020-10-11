@@ -32,10 +32,16 @@ import { // ABAC
 	permissionMutations
 } from './dayscool/abac/typeDefs';
 
+import { // Notification
+	notificationMutations,
+	notificationQueries,
+	notificationTypeDef
+} from './dayscool/notification/typeDefs';
 
 import userResolvers from './dayscool/users/resolvers';
 import messageResolvers from './dayscool/messages/resolvers';
 import abacResolvers from './dayscool/abac/resolvers';
+import notificationResolvers from './dayscool/notification/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
@@ -48,6 +54,7 @@ const mergedTypeDefs = mergeSchemas(
 		microserviceTypeDef,
 		requestTypeDef,
 		permissionTypeDef,
+		notificationTypeDef
 	],
 	[
 		userQueries,
@@ -56,6 +63,7 @@ const mergedTypeDefs = mergeSchemas(
 		microserviceQueries,
 		requestQueries,
 		permissionQueries,
+		notificationQueries
 	],
 	[	
 		userMutations,
@@ -63,7 +71,8 @@ const mergedTypeDefs = mergeSchemas(
 		roleMutations,
 		microserviceMutations,
 		requestMutations,
-		permissionMutations
+		permissionMutations,
+		notificationMutations
 	]
 );
 
