@@ -39,11 +39,17 @@ import { // Curso
 	cursoQueries,
 	cursoMutations
 } from './dayscool/curso/typeDefs'
+import { // Notification
+	notificationMutations,
+	notificationQueries,
+	notificationTypeDef
+} from './dayscool/notification/typeDefs';
 
 import userResolvers from './dayscool/users/resolvers';
 import messageResolvers from './dayscool/messages/resolvers';
 import abacResolvers from './dayscool/abac/resolvers';
 import cursoResolvers from './dayscool/curso/resolvers'
+import notificationResolvers from './dayscool/notification/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
@@ -59,6 +65,7 @@ const mergedTypeDefs = mergeSchemas(
 		cursoTypeDef,
 		alumnosTypeDef,
 		reunionTypeDef,
+		notificationTypeDef
 	],
 	[
 		userQueries,
@@ -68,6 +75,7 @@ const mergedTypeDefs = mergeSchemas(
 		requestQueries,
 		permissionQueries,
 		cursoQueries,
+		notificationQueries
 	],
 	[	
 		userMutations,
@@ -77,6 +85,7 @@ const mergedTypeDefs = mergeSchemas(
 		requestMutations,
 		permissionMutations,
 		cursoMutations,
+		notificationMutations
 	]
 );
 
