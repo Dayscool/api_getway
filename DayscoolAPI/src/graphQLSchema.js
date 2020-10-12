@@ -97,6 +97,7 @@ export default makeExecutableSchema({
 		userResolvers,
 		messageResolvers,
 		abacResolvers,
-		cursoResolvers
+		cursoResolvers,
+		notificationResolvers
 	)
 });
