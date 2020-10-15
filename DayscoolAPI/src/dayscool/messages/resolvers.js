@@ -25,4 +25,3 @@ const resolvers = {
 };
 
 export default resolvers;
-7
