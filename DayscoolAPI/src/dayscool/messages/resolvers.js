@@ -8,12 +8,12 @@ const resolvers = {
 //Añadir las definiciones por url de las request
 	Query: {
 		allConversations: (_, { idUs }) =>
-			getRequest(`${URL}/${idUs}`, 'GET'),
+			generalRequest(`${URL}/${idUs}`, 'GET'),
 		getMessagesbyConversation: (_, { idUs, idConv}) =>
 			generalRequest(`${URL}/${idUs}/${idConv}`, 'GET'),
 	},
 	Mutation: {
-		createConversation: (_, { idUs, category }) =>
+		createConversation: (_, { idUs, conversation }) =>
 			generalRequest(`${URL}/${idUs}`, 'POST', conversation),
 		createMessage: (_, { idUs,idConv, message }) =>
 			generalRequest(`${URL}/${idUs}/${idConv}`, 'POST', message),
