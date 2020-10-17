@@ -8,6 +8,11 @@ export const cursoTypeDef = `
         nombre: String!
         duenoid: Int!
     }
+    type Cursos {
+        id: Int!
+        nombre: String!
+        profesor: String!
+    }
 `;
 
 export const reunionTypeDef = `
@@ -37,7 +42,7 @@ export const alumnosTypeDef = `
 //Objetos GET
 export const cursoQueries = `
     getCursoById(id: Int!): [Curso]!
-    getCursoStudentById(id:Int!): [Curso]!
+    getCursoStudentById(id:Int!): [Cursos]!
     getReunionsByStudentId(id: Int!): [Reunion]!
 `;
 
