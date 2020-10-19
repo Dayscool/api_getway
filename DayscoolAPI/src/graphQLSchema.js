@@ -16,6 +16,13 @@ import { //Activities
 	activitiesMutations,
 } from './dayscool/activities/typeDefs';
 
+import { //Authentication
+	authenticationTypeDef,
+	authenticationQueries,	
+	authenticationMutations,
+} from './dayscool/authentication/typeDefs';
+
+
 import{ //Messages
 	conversationTypeDef,
 	conversationQueries,
@@ -57,13 +64,15 @@ import abacResolvers from './dayscool/abac/resolvers';
 import cursoResolvers from './dayscool/curso/resolvers'
 import notificationResolvers from './dayscool/notification/resolvers';
 import activitiesResolvers from './dayscool/activities/resolvers';
+import authenticationResolvers from './dayscool/authentication/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
 		userTypeDef,
-		activitiesTypeDef,		
+		activitiesTypeDef,
+		authenticationTypeDef,		
 		conversationTypeDef,
 		messageTypeDef,
 		roleTypeDef,
@@ -78,6 +87,7 @@ const mergedTypeDefs = mergeSchemas(
 	[
 		userQueries,
 		activitiesQueries,
+		authenticationQueries,
 		conversationQueries,
 		roleQueries,
 		microserviceQueries,
@@ -88,7 +98,8 @@ const mergedTypeDefs = mergeSchemas(
 	],
 	[	
 		userMutations,
-		activitiesMutations,		
+		activitiesMutations,
+		authenticationMutations,		
 		conversationMutations,
 		roleMutations,
 		microserviceMutations,
@@ -105,7 +116,8 @@ export default makeExecutableSchema({
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		userResolvers,
-		activitiesResolvers,		
+		activitiesResolvers,
+		authenticationResolvers,		
 		messageResolvers,
 		abacResolvers,
 		cursoResolvers,
