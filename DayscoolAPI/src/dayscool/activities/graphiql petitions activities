@@ -1,21 +1,33 @@
 ----------------- Actividades ----------------------
 query{
-  getAllCategorias{
-		Nombre
-		Descripcion
-  }
-}
+        getAllCategorias{
+          idCurso
+          Nombre
+          Fecha
+          FechaEntrega
+          Descripcion
+          Archivo
+        }
+      }
 query{
-  getCategoriaById(id:"5f75068ceef5ccb5f939b96d"){
-  	Nombre
+  getCategoriaById(id:"5f75068ceef5ccb5f939b96e"){
+	idCurso
+    Nombre
+    Fecha
+    FechaEntrega
     Descripcion
+    Archivo
   }
 }
 
 query{
   getCategoriaByCurso(idCurso:"5f75068ceef5"){
-  	Nombre
+  	idCurso
+    Nombre
+    Fecha
+    FechaEntrega
     Descripcion
+    Archivo
   }
 }
 
@@ -29,8 +41,12 @@ mutation{
         Descripcion: "Tarea Graph Aun Mas Dificil",
         Archivo: "Tarea02.pdf"
     }){
-  	  Nombre
-    	Fecha
+  	  idCurso
+    Nombre
+    Fecha
+    FechaEntrega
+    Descripcion
+    Archivo
   }
 }
 
@@ -44,7 +60,12 @@ mutation{
       Descripcion:"Tarea Graph 3",
       Archivo:"TareaGraphUltimo.pdf"
     }){
-  	  Nombre
+  	  idCurso
+    Nombre
+    Fecha
+    FechaEntrega
+    Descripcion
+    Archivo
   }
 }
 
@@ -56,14 +77,24 @@ mutation{
 ----------------- Entregas ----------------------
 query{
   getAllEntregas{
-		Nombre
-		Descripcion
+      idUsuario
+      idActividad
+      Nombre
+      Fecha
+      Descripcion
+      Archivo
+      Calificacion
   }
 }
 query{
-  getEntregaById(id:"5f750692eef5ccb5f939b96a"){
-  	Nombre
-    Descripcion
+  getEntregaById(id:"5f750692eef5ccb5f939b96c"){
+  	idUsuario
+      idActividad
+      Nombre
+      Fecha
+      Descripcion
+      Archivo
+      Calificacion
   }
 }
 mutation{
@@ -77,7 +108,13 @@ mutation{
     Archivo: "SolucionTarea03.pdf",
     Calificacion: "3.5"
     }){
-  	  Nombre
+  	  idUsuario
+      idActividad
+      Nombre
+      Fecha
+      Descripcion
+      Archivo
+      Calificacion
   }
 }
 
@@ -92,7 +129,13 @@ mutation{
       Archivo:"SolucionTarea04sdnakjdasd.pdf",
       Calificacion:"3.7"
     }){
-  	  Nombre
+  	    	  idUsuario
+      idActividad
+      Nombre
+      Fecha
+      Descripcion
+      Archivo
+      Calificacion
   }
 }
 
