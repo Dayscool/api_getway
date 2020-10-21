@@ -9,7 +9,7 @@ export const cursoTypeDef = `
         duenoid: Int!
     }
     type Cursos {
-        id: Int!
+        Id: Int!
         nombre: String!
         profesor: String!
     }

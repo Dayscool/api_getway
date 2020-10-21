@@ -1,7 +1,9 @@
-import { generalRequest } from '../../utilities';
-import {url, port, entryPoint} from './server';
+import {generalRequest}  from '../../utilities';
+import {url, port, entryPoint, url_user, port_user, entryPoint_user} from './server';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
+const URL_USER = `http://${url_user}:${port_user}/${entryPoint_user}`
+//const URL = `https://2c4d8ad7-c4e1-4015-b174-1457b0005dea.mock.pstmn.io`
 
 const resolvers = {
     Query: {
@@ -27,13 +29,13 @@ const resolvers = {
 export default resolvers;
 
 
-function get_cursos_estudiantes(id_estudiante) {
+async function get_cursos_estudiantes(id_estudiante) {
     //lista de los cursos del alumno
     var lista_cursos = await generalRequest(`${URL}/alumnos/${id_estudiante}`, 'GET');
-    var cursos = []
-    for(const cur in lista_cursos) {
-        profe = await generalRequest(`${URL}/${cur.duenoid}`, 'GET');
-        cursos.push({id = cur.Id, nombre = cur.nombre, profesor = profe.username});
+    console.log(lista_cursos)
+    for (const cur in lista_cursos) {
+        let profe = await generalRequest(`${URL_USER}/persona/${lista_cursos[cur].duenoid}`, 'GET');
+        cursos.push({Id: lista_cursos[cur].Id, nombre : lista_cursos[cur].nombre, profesor : profe.username});
     }
     return cursos
 } 
