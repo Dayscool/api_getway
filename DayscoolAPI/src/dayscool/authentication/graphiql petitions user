@@ -15,10 +15,10 @@ mutation{
 mutation{
   getUserC(
     username
-    username
+    password
     
   }){
-  user:{
+  user2:{
     username: "pepito15",
     mail: "o17@mail.com",
     birthDate: "1998-11-09",

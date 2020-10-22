@@ -136,6 +136,7 @@ function getUserByMail(mail){
       });
     return user;
 }
+
 function updateUser(id,username, mail, birthDate, career, role, name, password){
     var user = {};
     query = ` mutation{
@@ -181,6 +182,67 @@ function deleteUser(id){
         });
 }
 
+function getUserC(username, password){
+    var user2 = {};
+    query =`
+    query{
+        getUserC(username: "${username},password: "${password}"){
+            id
+            username
+            mail
+            birthDate
+            career
+            role
+            name
+            password
+            entryTime
+        }
+      }
+    `;
+    opts["body"] = JSON.stringify({ query });
+    fetch(url, opts)
+      .then(res => res.json())
+      .then(data =>{
+          console.log(data.data.getUserC);
+          user2 = data.data.getUserC;
+      });
+    return user2;
+}
+
+function addUser(username, mail, birthDate, career, role, name, password){
+    var user2 = {};
+    query = 
+    `mutation{
+        addUser(user: {
+          username: "${username}",
+          mail: "${mail}",
+          birthDate: "${birthDate}",
+          career: "${career}",
+          role: "${role}",
+          name: "${name}",
+          password: "${password}",
+        })
+        {
+            id
+            username
+            mail
+            birthDate
+            career
+            role
+            name
+            password
+            entryTime
+        }
+    }`;
+    opts["body"] = JSON.stringify({ query });
+    fetch(url, opts)
+    .then(res => res.json())
+    .then(data =>{
+        console.log(data.data.addUser);
+        user2 = data.data.addUser;
+    });
+    return user2;
+}
 
 //_______________Message______________________
 

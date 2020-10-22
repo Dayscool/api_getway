@@ -9,6 +9,7 @@ export const authenticationTypeDef = `
       role: String!
       name: String!
       password: String!
+      EntryTime: String!
   }
   input User2Input {
       username: String!
