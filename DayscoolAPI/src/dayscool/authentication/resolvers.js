@@ -6,13 +6,9 @@ const URL = `http://${url}:${port}/${entryPoint}`;
 
 const resolvers = {
 //Añadir las definiciones por url de las request
-	Query: {
-		getAllUsers: (_) =>
-			getRequest(`${URL}/users`, ''),
-		getUser2ByUsername: (_, {username}) =>
-			generalRequest(`${URL}/getUserByUsername`, 'GET', username),
-		getUser2ByMail: (_, { mail }) =>
-			generalRequest(`${URL}/getUserByMail`, 'GET', mail),
+	Query: {		
+		getUserC: (_, { username }, { password }) =>
+			generalRequest(`${URL}/getUserC`, 'GET', username, password),
 	},
 	Mutation: {
 		createUser2: (_, { user2 }) =>

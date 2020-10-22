@@ -22,9 +22,7 @@ export const authenticationTypeDef = `
 
 //Definir las consultas del objeto (solo GET)
 export const authenticationQueries = `
-  getAllUsers: [User2]!  
-  getUser2ByUsername(username:String!): User2!
-  getUser2ByMail(mail:String!): User2!
+getUserC(username:String!, password:String!): User2!
   `;
 //Definir las mutaciones (POST PUT Y DELETE) 
 export const authenticationMutations = `

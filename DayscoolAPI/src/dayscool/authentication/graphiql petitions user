@@ -12,25 +12,20 @@ mutation{
   }
 }
 
-query{
-  getUserById(id:2){
-  	name
-    username
-  }
-}
-
 mutation{
-  updateUser(id:1, user:{
+  getUserC(
+    username
+    username
+    
+  }){
+  user:{
     username: "pepito15",
-    mail: "ozai17@mail.com",
+    mail: "o17@mail.com",
     birthDate: "1998-11-09",
     career: "engineering",
     role: "student",
     name: "Pepito",
-    password: "1234"
-  }){
-  	name
-    username
+    password: "1234"	
   }
 }
 
