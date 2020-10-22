@@ -475,3 +475,287 @@ document.getElementById("getAllNotifications").onclick = function(){getAllNotifi
 document.getElementById("getNotification").onclick = function(){getNotification(1,"5f83c608f7a2ac0019847eb0")};
 document.getElementById("deleteNotification").onclick = function(){deleteNotification(3,"5f83ce9af7a2ac0019847eb2")};
 document.getElementById("deleteNotifications").onclick = function(){deleteAllNotifications(3)};
+
+
+
+//---------------------------------------- Activities ---------------------------------------------------------
+
+function getAllCategorias(){
+    var categoryList = {};
+    query =
+    `query{
+        getAllCategorias{
+          idCurso
+          Nombre
+          Fecha
+          FechaEntrega
+          Descripcion
+          Archivo
+        }
+      }
+      `;
+    opts["body"] = JSON.stringify({ query });
+    fetch(url, opts)
+      .then(res => res.json())
+      .then(data =>{
+          console.log(data.data.getAllCategorias);
+          categoryList = data.data.getAllCategorias;
+      });
+    return categoryList;
+}
+
+function getCategoriaById(id){
+    var actividad = {};
+    query = 
+    `query{
+        getCategoriaById(id:"${id}"){
+          idCurso
+          Nombre
+          Fecha
+          FechaEntrega
+          Descripcion
+          Archivo
+        }
+      }
+      `;
+    opts["body"] = JSON.stringify({ query });
+    fetch(url, opts)
+      .then(res => res.json())
+      .then(data =>{
+          console.log(data.data.getCategoriaById);
+          actividad = data.data.getCategoriaById;
+      });
+    return actividad;
+}
+
+function getCategoriaByCurso(id){
+    var actividad = {};
+    query =`
+    query{
+        getCategoriaByCurso(idCurso:"${id}"){
+            idCurso
+          Nombre
+          Fecha
+          FechaEntrega
+          Descripcion
+          Archivo
+        }
+      }
+    `;
+    opts["body"] = JSON.stringify({ query });
+    fetch(url, opts)
+      .then(res => res.json())
+      .then(data =>{
+          console.log(data.data.getCategoriaByCurso);
+          actividad = data.data.getCategoriaByCurso;
+      });
+    return actividad;
+}
+
+function createActividad(id,idcurso, nombre, fecha, fechaentrega, descripcion, archivo){
+    var actividad = {};
+    query = ` mutation{
+        createActividad(actividad: {
+            id: "${id}",
+            idCurso: "${idcurso}",
+            Nombre: "${nombre}",
+            Fecha: "${fecha}",
+            FechaEntrega: "${fechaentrega}",
+            Descripcion: "${descripcion}",
+            Archivo: "${archivo}"
+        }){
+            idCurso
+        Nombre
+        Fecha
+        FechaEntrega
+        Descripcion
+        Archivo
+      }
+    }
+    `;
+      opts["body"] = JSON.stringify({ query });
+      fetch(url, opts)
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data.data.createActividad);
+            actividad = data.data.createActividad;
+        });
+      return actividad;
+}
+
+function updateActividad(id,idcurso, nombre, fecha, fechaentrega, descripcion, archivo){
+    var actividad = {};
+    query = ` mutation{
+        updateActividad(id: "${id}", actividad: {
+                id:"${id}",
+          idCurso:"${idcurso}",
+          Nombre:"${nombre}",
+          Fecha:"${fecha}",
+          FechaEntrega:"${fechaentrega}",
+          Descripcion:"${descripcion}",
+          Archivo:"${archivo}"
+        })
+    }
+    `;
+      opts["body"] = JSON.stringify({ query });
+      fetch(url, opts)
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data.data.updateActividad);
+            actividad = data.data.updateActividad;
+        });
+      return actividad;
+}
+
+function deleteActividad(id){
+    query = `
+    mutation{
+        deleteActividad(id:"${id}")
+      }
+    `;
+    opts["body"] = JSON.stringify({ query });
+      fetch(url, opts)
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data);
+        });
+}
+// ---------------------------- Entregas ----------------------------
+
+function getAllEntregas(){
+    var entregaList = {};
+    query =
+    `query{
+        getAllEntregas{
+            idUsuario
+            idActividad
+            Nombre
+            Fecha
+            Descripcion
+            Archivo
+            Calificacion
+        }
+      }
+      `;
+    opts["body"] = JSON.stringify({ query });
+    fetch(url, opts)
+      .then(res => res.json())
+      .then(data =>{
+          console.log(data.data.getAllEntregas);
+          entregaList = data.data.getAllEntregas;
+      });
+    return entregaList;
+}
+
+function getEntregaById(id){
+    var entrega = {};
+    query = 
+    `query{
+        getEntregaById(id:"${id}"){
+            idUsuario
+            idActividad
+            Nombre
+            Fecha
+            Descripcion
+            Archivo
+            Calificacion
+        }
+      }
+      `;
+    opts["body"] = JSON.stringify({ query });
+    fetch(url, opts)
+      .then(res => res.json())
+      .then(data =>{
+          console.log(data.data.getEntregaById);
+          entrega = data.data.getEntregaById;
+      });
+    return entrega;
+}
+
+function createEntrega(id, idusuario, idactividad, nombre, fecha, descripcion, archivo, calificacion){
+    var entrega = {};
+    query = ` mutation{
+        createEntrega(entrega: {
+            id: "${id}",
+        idUsuario: "${idusuario}",
+        idActividad: "${idactividad}",
+        Nombre: "${nombre}",
+        Fecha: "${fecha}",
+        Descripcion: "${descripcion}",
+        Archivo: "${archivo}",
+        Calificacion: "${calificacion}"
+        }){
+            idUsuario
+          idActividad
+          Nombre
+          Fecha
+          Descripcion
+          Archivo
+          Calificacion
+      }
+    }
+    `;
+      opts["body"] = JSON.stringify({ query });
+      fetch(url, opts)
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data.data.createEntrega);
+            entrega = data.data.createEntrega;
+        });
+      return entrega;
+}
+
+function updateEntrega(id, idusuario, idactividad, nombre, fecha, descripcion, archivo, calificacion){
+    var entrega = {};
+    query = ` mutation{
+        updateEntrega(id: "${id}", entrega: {
+                id:"${id}",
+          idUsuario:"${idusuario}",
+          idActividad:"${idactividad}",
+          Nombre:"${nombre}",
+          Fecha:"${fecha}",
+          Descripcion:"${descripcion}",
+          Archivo:"${archivo}",
+          Calificacion:"${calificacion}"
+        })
+    }
+    `;
+      opts["body"] = JSON.stringify({ query });
+      fetch(url, opts)
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data.data.updateEntrega);
+            entrega = data.data.updateEntrega;
+        });
+      return entrega;
+}
+
+function deleteEntrega(id){
+    query = `
+    mutation{
+        deleteEntrega(id:"${id}")
+      }
+    `;
+    opts["body"] = JSON.stringify({ query });
+      fetch(url, opts)
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data);
+        });
+}
+
+
+// Pruebas message
+document.getElementById("getAllCategorias").onclick = function () { getAllCategorias() };
+document.getElementById("getCategoriaById").onclick = function () { getCategoriaById("5f75068ceef5ccb5f939b96e") };
+document.getElementById("getCategoriaByCurso").onclick = function () { getCategoriaByCurso("5f75068ceef7")};
+document.getElementById("createActividad").onclick = function () { createActividad("2f75068ceef5ccb5f939b96e", "5f75068ceef7", "Prueba API Gateway", "2020/10/19", "2020/10/20", "Prueba para verificar api gateway", "gateway.pdf") };
+document.getElementById("updateActividad").onclick = function () { updateActividad("2f75068ceef5ccb5f939b96e", "5f75068ceef7", "Prueba API Gateway 2", "2020/10/19", "2020/10/20", "Prueba para verificar api gateway 2", "gateway2.pdf") };
+document.getElementById("deleteActividad").onclick = function () { deleteActividad("2f75068ceef5ccb5f939b96e") };
+//pruebas entregas
+document.getElementById("getAllEntregas").onclick = function () { getAllEntregas() };
+document.getElementById("getEntregaById").onclick = function () { getEntregaById("5f750692eef5ccb5f939b98c") };
+document.getElementById("createEntrega").onclick = function () { createEntrega("8f750692eef5ccb5f939b98c", "5", "6", "Prueba API Gateway", "2020/10/19", "Prueba para verificar api gateway", "3.5") };
+document.getElementById("updateEntrega").onclick = function () { updateEntrega("8f750692eef5ccb5f939b98c", "6", "7", "Prueba API Gateway 2", "2020/10/19", "Prueba para verificar api gateway 2", "3.6") };
+document.getElementById("deleteEntrega").onclick = function () { deleteEntrega("8f750692eef5ccb5f939b98c") };                                                                                                        
+//---------------------------------------- End Activities ---------------------------------------------------------

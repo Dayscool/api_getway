@@ -44,15 +44,15 @@ export const activitiesQueries = `
   getAllCategorias: [Actividad]!
   getCategoriaById(id:String!): Actividad!
   getCategoriaByCurso(idCurso:String!): [Actividad]!
-  getAllEntregas: [Actividad]!
-  getEntregaById(id:String!): Actividad!
+  getAllEntregas: [Entrega]!
+  getEntregaById(id:String!): Entrega!
   `;
 //Definir las mutaciones (POST PUT Y DELETE) 
 export const activitiesMutations = `
   createActividad(actividad: ActividadInput!): Actividad!
   createEntrega(entrega: EntregaInput!): Entrega!
-  updateActividad(id: String!, actividad: ActividadInput!): Actividad!
-  updateEntrega(id: String!, entrega: EntregaInput!): Entrega!
+  updateActividad(id: String!, actividad: ActividadInput!): String
+  updateEntrega(id: String!, entrega: EntregaInput!): String
   deleteActividad(id: String!): String
   deleteEntrega(id: String!): String
 `;

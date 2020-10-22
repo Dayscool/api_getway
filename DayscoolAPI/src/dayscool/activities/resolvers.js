@@ -30,7 +30,7 @@ const resolvers = {
 		updateEntrega: (_, { id, entrega }) =>
 			generalRequest(`${URL}/entrega/${id}`, 'PUT', entrega),
 		deleteEntrega: (_, { id }) =>
-			generalRequest(`${URL}/entrega/${id}`, 'DELETE')			
+			generalRequest(`${URL}/entrega/${id}`, 'DELETE')		
 			
 	}
 };
