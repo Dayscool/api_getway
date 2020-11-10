@@ -6,7 +6,7 @@ var client = ldap.createClient({
   url: ldapServer
 });
 
-var user = 'ldap://3.236.27.51:636';
+var user = 'cn=admin,dc=arqsoft,dc=unal,dc=edu,dc=co';
 var password = 'admin';
 
 
